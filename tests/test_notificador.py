@@ -13,7 +13,7 @@ def test_enviar_correo_exitoso():
 
     # Simulamos que enviar_correo retorna True (éxito)
     with patch("notificador.main.enviar_correo", return_value=True):
-        response = client.post("/enviar-correo", json=datos)
+        response = client.post("/notificar", json=datos)
         assert response.status_code == 200
         assert response.json() == {"mensaje": "Correo enviado correctamente"}
 
@@ -25,7 +25,7 @@ def test_enviar_correo_fallido():
     }
 
     # Simulamos que enviar_correo retorna False (fallo)
-    with patch("main.enviar_correo", return_value=False):
-        response = client.post("/enviar-correo", json=datos)
+    with patch("notificador.main.enviar_correo", return_value=False):
+        response = client.post("/notificar", json=datos)
         assert response.status_code == 200
         assert response.json() == {"mensaje": "Error al enviar el correo"}

@@ -1,13 +1,16 @@
 # main.py
 from fastapi import FastAPI
-from correo import enviar_correo
+from .correo import enviar_correo
+from .model import CorreoRequest
 
 app = FastAPI()
 
-@app.get("/notificar")
-async def notificar(destinatario: str, asunto: str, mensaje: str):
-    enviado = enviar_correo(destinatario, asunto, mensaje)
+
+
+@app.post("/notificar")
+async def notificar(datos: CorreoRequest):
+    enviado = enviar_correo(datos.destinatario, datos.asunto, datos.contenido)
     if enviado:
-        return {"mensaje": "Correo enviado exitosamente"}
+        return {"mensaje": "Correo enviado correctamente"}
     else:
-        return {"error": "No se pudo enviar el correo"}
+        return {"mensaje": "Error al enviar el correo"}

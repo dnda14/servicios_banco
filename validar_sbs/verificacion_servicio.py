@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from entidad import Verificacion
-from request_schema import VerificacionRequest
-from response_schema import VerificacionResponse
+from .entidad import Verificacion
+from .request_schema import VerificacionRequest
+from .response_schema import VerificacionResponse
 
 def verificar_usuario(db: Session, datos: VerificacionRequest) -> VerificacionResponse:
    

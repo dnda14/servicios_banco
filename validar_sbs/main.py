@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from database import Base, engine
-from ruta_verificar import router as verificar_router
+from .database import Base, engine
+from .ruta_verificar import router as verificar_router
 
 app = FastAPI(title="Servicio de Verificación SBS")
 

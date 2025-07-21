@@ -9,7 +9,7 @@ def test_firmar_endpoint_exito():
         "contenido": "Contenido de prueba"
     }
 
-    response = client.post("/app/firmador/firmar", json=payload)
+    response = client.post("/api/firmador/firmar", json=payload)
 
     assert response.status_code == 200
     data = response.json()
@@ -24,12 +24,12 @@ def test_firmar_endpoint_falta_contenido():
        
     }
 
-    response = client.post("/firmar", json=payload)
-
+    response = client.post("/api/firmador/firmar", json=payload)
+    print(response.json())
     assert response.status_code == 422  # Unprocessable Entity
     data = response.json()
     assert data["detail"][0]["loc"][-1] == "contenido"
-    assert data["detail"][0]["msg"].startswith("field required")
+    assert data["detail"][0]["msg"].lower().startswith("field required")
 
 def test_firmar_endpoint_tipo_incorrecto_dni():
     payload = {
@@ -37,9 +37,9 @@ def test_firmar_endpoint_tipo_incorrecto_dni():
         "contenido": "Texto válido"
     }
 
-    response = client.post("/firmar", json=payload)
-
+    response = client.post("/api/firmador/firmar", json=payload)
+    print(response.json())
     assert response.status_code == 422
     data = response.json()
     assert data["detail"][0]["loc"][-1] == "dni"
-    assert "str type" in data["detail"][0]["msg"]
+    assert "string" in data["detail"][0]["msg"].lower()
