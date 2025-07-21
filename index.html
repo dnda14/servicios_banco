@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prueba Conexión Bonita</title>
+</head>
+<body>
+    <h1>Formulario de Prueba</h1>
+    <form id="miFormulario">
+        <div>
+            <label>Nombre:</label>
+            <input type="text" id="nombre" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <button type="submit">Enviar a Bonita</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('miFormulario').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const datos = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:8000/iniciar-proceso', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(datos)
+                });
+
+                const resultado = await response.json();
+                document.getElementById('resultado').innerHTML = 
+                    `<p>Éxito: ${JSON.stringify(resultado)}</p>`;
+            } catch (error) {
+                document.getElementById('resultado').innerHTML = 
+                    `<p>Error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
