@@ -14,6 +14,6 @@ def get_db():
     finally:
         db.close()
 
-@router.post("/verificar", response_model=VerificacionResponse)
+@router.get("/verificar", response_model=VerificacionResponse)
 def verificar(datos: VerificacionRequest, db: Session = Depends(get_db)):
     return verificar_usuario(db, datos)
