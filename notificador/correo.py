@@ -5,11 +5,13 @@ from dotenv import load_dotenv
 import os
 
 # Carga las variables desde el archivo .env
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 REMITENTE = os.getenv("EMAIL_REMITENTE")
 CONTRASENA = os.getenv("EMAIL_PASSWORD")
-
+print("Remitente:", REMITENTE)
+print("Contraseña:", CONTRASENA)
 def enviar_correo(destinatario: str, asunto: str, contenido: str):
     mensaje = EmailMessage()
     mensaje["From"] = REMITENTE

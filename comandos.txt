@@ -1,3 +1,5 @@
 uvicorn validar_sbs.main:app --reload desde la raiz del proyecto
 
 pytest en la terminal desde la raiz del proyecto
+
+usar el loadenv busca el .env donde ejecutaste el comando
