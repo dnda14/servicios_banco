@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: servicios
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: ''
+paths:
+  /api/firmador/firmar:
+    post:
+      summary: generar firma
+      description: generar firma
+      operationId: generarFirma
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contenido:
+                  type: string
+                  example: Este es el contrato de préstamo entre partes.
+                dni:
+                  type: string
+                  example: '12345678'
+            example:
+              contenido: Este es el contrato de préstamo entre partes.
+              dni: '12345678'
+      responses:
+        '200':
+          description: ''
+  /notificar:
+    post:
+      summary: notificar ususario
+      description: notificar ususario
+      operationId: notificarUsusario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                asunto:
+                  type: string
+                  example: Buenas dias
+                contenido:
+                  type: string
+                  example: Prueba456
+                destinatario:
+                  type: string
+                  example: dndamc@gmail.com
+            example:
+              asunto: Buenas dias
+              contenido: Prueba456
+              destinatario: dndamc@gmail.com
+      responses:
+        '200':
+          description: ''
+  /sbs/verificar:
+    post:
+      summary: validar usuario
+      description: validar usuario
+      operationId: validarUsuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                apellidos:
+                  type: string
+                  example: Juan
+                dni:
+                  type: string
+                  example: '12345678'
+                fecha_nacimiento:
+                  type: string
+                  example: '1990-05-15'
+                nombres:
+                  type: string
+                  example: Juan
+            example:
+              apellidos: Juan
+              dni: '12345678'
+              fecha_nacimiento: '1990-05-15'
+              nombres: Juan
+      responses:
+        '200':
+          description: ''
+tags: []
