@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "59aee991-a4d1-4e7e-9408-09a159677ad7",
+		"name": "servicios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33769274",
+		"_collection_link": "https://cloudy-crater-845160.postman.co/workspace/serviciosdse~b0ae52a1-9824-4f94-86a0-7f47ae76d6ae/collection/33769274-59aee991-a4d1-4e7e-9408-09a159677ad7?action=share&source=collection_link&creator=33769274"
+	},
+	"item": [
+		{
+			"name": "generar firma",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Estado 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Firma correcta\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.mensaje).to.eql(\"Documento firmado correctamente\");\r",
+							"});\r",
+							"pm.test(\"resoponse is below 5s\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": \"12345678\",\r\n  \"contenido\": \"Este es el contrato de préstamo entre partes.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dominio}}/api/firmador/firmar",
+					"host": [
+						"{{dominio}}"
+					],
+					"path": [
+						"api",
+						"firmador",
+						"firmar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notificar ususario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Estado 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Mensaje de exito\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.mensaje).to.eql(\"Correo enviado correctamente\");\r",
+							"});\r",
+							"pm.test(\"resoponse is below 5s\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"destinatario\": \"dndamc@gmail.com\",\r\n  \"asunto\": \"Buenas dias\",\r\n  \"contenido\": \"Prueba456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dominio}}/notificar",
+					"host": [
+						"{{dominio}}"
+					],
+					"path": [
+						"notificar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validar usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Estado 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Mensaje de validez\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.mensaje).to.eql(\"El usuario es válido para crédito\");\r",
+							"});\r",
+							"pm.test(\"resoponse is below 5s\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": \"12345678\",\r\n  \"nombres\": \"Juan\",\r\n  \"apellidos\": \"Juan\",\r\n  \"fecha_nacimiento\": \"1990-05-15\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dominio}}/sbs/verificar",
+					"host": [
+						"{{dominio}}"
+					],
+					"path": [
+						"sbs",
+						"verificar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
