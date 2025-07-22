@@ -7,3 +7,19 @@ Generar firma
 Validar usuario
 <img width="1410" height="680" alt="image" src="https://github.com/user-attachments/assets/354823ad-a903-484b-b4a6-c9da31eeffc7" />
 
+Casos 
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| Feature      | Scenario           | Given                              | When                               | Then                                      |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| Firmador     | Firma exitosa      | Documento y DNI válidos            | Solicitud a /api/firmador/firmar   | Respuesta 200 y firma generada            |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| Firmador     | DNI inválido       | DNI con formato incorrecto         | Solicitud a /api/firmador/firmar   | Error 400 y mensaje claro                 |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| Notificación | Envío exitoso      | Datos de notificación válidos      | Solicitud a /notificar             | Respuesta 200 y notificación enviada      |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| Notificación | Email inválido     | Email mal formado                  | Solicitud a /notificar             | Error 400 y mensaje descriptivo           |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| SBS          | Validación exitosa | Todos los datos correctos          | Solicitud a /sbs/verificar         | Respuesta 200 y validación OK             |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
+| SBS          | Datos incompletos  | Faltan campos obligatorios          | Solicitud a /sbs/verificar         | Error 400 indicando campos faltantes      |
++--------------+--------------------+------------------------------------+------------------------------------+-------------------------------------------+
