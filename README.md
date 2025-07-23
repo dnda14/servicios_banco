@@ -30,3 +30,9 @@ Feature: Como sistema validador, quiero verificar los datos del usuario con la S
 |--------------------|------------------------------------------|---------------------------------------|---------------------------------------------------------------|
 | Validación exitosa | Todos los datos enviados son correctos  | Se realiza una solicitud a /sbs/verificar | Se obtiene una respuesta 200 con validación satisfactoria       |
 | Datos incompletos  | Faltan campos obligatorios en los datos | Se realiza una solicitud a /sbs/verificar | Se obtiene un error 400           |
+
+
+Swagger
+
+<img width="1884" height="792" alt="image" src="https://github.com/user-attachments/assets/ff55dff7-5e9e-46e8-accb-cd71d3045099" />
+
