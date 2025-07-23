@@ -17,14 +17,14 @@ Feature: Como usuario del sistema, quiero firmar documentos digitalmente para qu
 | Firma exitosa  | El documento y el DNI son válidos     | Se realiza una solicitud a /api/firmador/firmar | Se obtiene una respuesta 200 y la firma generada     |
 | DNI inválido   | El DNI tiene un formato incorrecto    | Se realiza una solicitud a /api/firmador/firmar | Se obtiene un error 400         |
 
-Feature: Como sistema de mensajería, quiero enviar notificaciones para que los usuarios reciban información relevante a tiempo
+Feature: Como usuario del sistema, quiero enviar notificaciones para que los usuarios reciban información relevante a tiempo
 
 | Scenario       | Given                                 | When                               | Then                                                     |
 |----------------|----------------------------------------|------------------------------------|----------------------------------------------------------|
 | Envío exitoso  | Los datos de notificación son válidos | Se realiza una solicitud a /notificar | Se obtiene una respuesta 200 y la notificación es enviada |
 | Email inválido | El email está mal formado             | Se realiza una solicitud a /notificar | Se obtiene un error 400        |
 
-Feature: Como sistema validador, quiero verificar los datos del usuario con la SBS para que se garantice la autenticidad de la información
+Feature: Como usuario del sistema, quiero verificar los datos del usuario con la SBS para que se garantice la autenticidad de la información
 
 | Scenario           | Given                                   | When                                  | Then                                                          |
 |--------------------|------------------------------------------|---------------------------------------|---------------------------------------------------------------|
