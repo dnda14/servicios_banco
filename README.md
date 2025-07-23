@@ -10,12 +10,23 @@ Validar usuario
 Casos 
 
 
+Feature: Como usuario del sistema, quiero firmar documentos digitalmente para que se garantice su validez legal
 
-| Feature      | Scenario           | Given                              | When                               | Then                                      |
-|--------------|--------------------|------------------------------------|------------------------------------|-------------------------------------------|
-| Firmador     | Firma exitosa      | Documento y DNI válidos            | Solicitud a /api/firmador/firmar   | Respuesta 200 y firma generada            |
-| Firmador     | DNI inválido       | DNI con formato incorrecto         | Solicitud a /api/firmador/firmar   | Error 400 y mensaje claro                 |
-| Notificación | Envío exitoso      | Datos de notificación válidos      | Solicitud a /notificar             | Respuesta 200 y notificación enviada      |
-| Notificación | Email inválido     | Email mal formado                  | Solicitud a /notificar             | Error 400 y mensaje descriptivo           |
-| SBS          | Validación exitosa | Todos los datos correctos          | Solicitud a /sbs/verificar         | Respuesta 200 y validación OK             |
-| SBS          | Datos incompletos  | Faltan campos obligatorios          | Solicitud a /sbs/verificar         | Error 400 indicando campos faltantes      |
+| Scenario       | Given                                 | When                                      | Then                                                |
+|----------------|----------------------------------------|-------------------------------------------|-----------------------------------------------------|
+| Firma exitosa  | El documento y el DNI son válidos     | Se realiza una solicitud a /api/firmador/firmar | Se obtiene una respuesta 200 y la firma generada     |
+| DNI inválido   | El DNI tiene un formato incorrecto    | Se realiza una solicitud a /api/firmador/firmar | Se obtiene un error 400         |
+
+Feature: Como sistema de mensajería, quiero enviar notificaciones para que los usuarios reciban información relevante a tiempo
+
+| Scenario       | Given                                 | When                               | Then                                                     |
+|----------------|----------------------------------------|------------------------------------|----------------------------------------------------------|
+| Envío exitoso  | Los datos de notificación son válidos | Se realiza una solicitud a /notificar | Se obtiene una respuesta 200 y la notificación es enviada |
+| Email inválido | El email está mal formado             | Se realiza una solicitud a /notificar | Se obtiene un error 400        |
+
+Feature: Como sistema validador, quiero verificar los datos del usuario con la SBS para que se garantice la autenticidad de la información
+
+| Scenario           | Given                                   | When                                  | Then                                                          |
+|--------------------|------------------------------------------|---------------------------------------|---------------------------------------------------------------|
+| Validación exitosa | Todos los datos enviados son correctos  | Se realiza una solicitud a /sbs/verificar | Se obtiene una respuesta 200 con validación satisfactoria       |
+| Datos incompletos  | Faltan campos obligatorios en los datos | Se realiza una solicitud a /sbs/verificar | Se obtiene un error 400           |
