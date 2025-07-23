@@ -1,3 +1,11 @@
+Integrantes:
+- Ferro Vásquez, Arleen Maritza
+- Huanca Olazabal, Cristhian David
+- Pérez Villasante, Jazmín Gabriela
+- Mamani Casilla, Wilson Isaac
+- Mamani Yucra, Edilson Bonet
+- Mendoza Fernandez, Sebastian Andres 
+
 <img width="1314" height="619" alt="image" src="https://github.com/user-attachments/assets/880c31b7-0c8c-4cde-bd35-09500f2c100b" />
 
 Notificar usuario
