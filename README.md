@@ -4,7 +4,14 @@ Integrantes:
 - Pérez Villasante, Jazmín Gabriela
 - Mamani Casilla, Wilson Isaac
 - Mamani Yucra, Edilson Bonet
-- Mendoza Fernandez, Sebastian Andres 
+- Mendoza Fernandez, Sebastian Andres
+
+Arquitectura:
+
+<img width="795" height="728" alt="image" src="https://github.com/user-attachments/assets/2ce38f32-be2c-4a8c-9d71-b94b896a887f" />
+
+
+Pruebas Postman:
 
 <img width="1314" height="619" alt="image" src="https://github.com/user-attachments/assets/880c31b7-0c8c-4cde-bd35-09500f2c100b" />
 
