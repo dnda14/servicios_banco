@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from firmar.main import app  # Asegúrate de que la ruta es correcta
+from firmar.main import app  
 
 client = TestClient(app)
 
@@ -26,14 +26,14 @@ def test_firmar_endpoint_falta_contenido():
 
     response = client.post("/api/firmador/firmar", json=payload)
     print(response.json())
-    assert response.status_code == 422  # Unprocessable Entity
+    assert response.status_code == 422  
     data = response.json()
     assert data["detail"][0]["loc"][-1] == "contenido"
     assert data["detail"][0]["msg"].lower().startswith("field required")
 
 def test_firmar_endpoint_tipo_incorrecto_dni():
     payload = {
-        "dni": 12345678,  # Debería ser string
+        "dni": 12345678, 
         "contenido": "Texto válido"
     }
 

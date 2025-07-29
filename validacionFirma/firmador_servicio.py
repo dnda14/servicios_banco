@@ -1,4 +1,3 @@
-# servicios/firmador_service.py
 import hashlib
 from datetime import datetime
 

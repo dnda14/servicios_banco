@@ -11,7 +11,7 @@ def test_enviar_correo_exitoso():
         "contenido": "Este es un mensaje de prueba"
     }
 
-    # Simulamos que enviar_correo retorna True (éxito)
+    # Simulamos que enviar_correo retorna True 
     with patch("notificador.main.enviar_correo", return_value=True):
         response = client.post("/notificar", json=datos)
         assert response.status_code == 200

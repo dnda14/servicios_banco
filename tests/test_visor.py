@@ -18,13 +18,13 @@ async def test_subir_y_ver_archivo():
     assert response.status_code == 200
     assert f"'{test_filename}'" in response.json()["mensaje"]
 
-    # Ahora probamos que el archivo se puede ver (GET /view/{filename})
+    
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.get(f"/view/{test_filename}")
     assert response.status_code == 200
     assert response.content == contenido
 
-    # Limpieza: borrar archivo subido
+    
     os.remove(UPLOAD_DIR / test_filename)
 
 
