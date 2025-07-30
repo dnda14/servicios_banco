@@ -7,3 +7,5 @@ Generar firma
 Validar usuario
 <img width="1410" height="680" alt="image" src="https://github.com/user-attachments/assets/354823ad-a903-484b-b4a6-c9da31eeffc7" />
 
+Sonarqube
+<img width="1313" height="826" alt="image" src="https://github.com/user-attachments/assets/a163c81d-12c8-4ef3-801a-44134043802c" />
