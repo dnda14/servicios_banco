@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 visor_documento/archivos/
 notificador/.env
+.scannerwork/
