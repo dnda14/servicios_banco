@@ -51,3 +51,8 @@ Swagger
 
 <img width="1884" height="792" alt="image" src="https://github.com/user-attachments/assets/ff55dff7-5e9e-46e8-accb-cd71d3045099" />
 
+Sonarqube
+
+<img width="1325" height="799" alt="image" src="https://github.com/user-attachments/assets/74eb6675-2f31-48b0-b433-0967438bff9e" />
+
+
